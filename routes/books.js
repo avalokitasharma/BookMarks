@@ -25,7 +25,7 @@ router.get('/catalog',passport.authenticate('jwt', {session: false}), (req,res) 
 //BOOKS POST ROUTE
 //add/create a new book in catalog
 
-router.post('/catalog/new',
+router.post('/catalog/new',passport.authenticate('jwt', {session: false}),
 	(req,res) => {
 		const bookFields = {};
 		if(req.body.title) bookFields.title = req.body.title;
@@ -41,7 +41,6 @@ router.post('/catalog/new',
 				res.status(404).json('The book already exists in catalog');
 			}
 			else {
-				console.log("a book added");
 				new Book(bookFields).save().then(book => res.json(book));
 			}
 		});
