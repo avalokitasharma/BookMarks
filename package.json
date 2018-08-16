@@ -4,11 +4,26 @@
   "description": "Book Catalog full stack web app",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "client-install":"npm install --prefix client",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Avalokita Sharma",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "concurrently": "^3.6.1",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.7",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
   }
 }
