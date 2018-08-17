@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Book = require('../models/Book');
 const passport = require('passport');
+
+const Book = require('../models/Book');
 
 //GET ALL BOOKS
 
@@ -27,7 +28,7 @@ router.get('/catalog',passport.authenticate('jwt', {session: false}), (req,res) 
 
 router.post('/catalog/new',passport.authenticate('jwt', {session: false}),
 	(req,res) => {
-		const bookFields = {};
+		let bookFields = {};
 		if(req.body.title) bookFields.title = req.body.title;
 		if(req.body.author) bookFields.author = req.body.author;
 		if(req.body.ISBN) bookFields.ISBN = req.body.ISBN;
@@ -48,7 +49,7 @@ router.post('/catalog/new',passport.authenticate('jwt', {session: false}),
 
 //edit/update a book
 
-router.post('/books/edit/',passport.authenticate('jwt', {session: false}),
+router.post('/catalog/edit/',passport.authenticate('jwt', {session: false}),
 	(req,res) => {
 		const bookFields = {};
 		if(req.body.title) bookFields.title = req.body.title;

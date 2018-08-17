@@ -57,9 +57,7 @@ class App extends Component {
             <Switch>
               <PrivateRoute exact path="/catalog" component = {Catalog} />
             </Switch>
-            <Switch>
-              <PrivateRoute exact path="/catalog/new" component = {AddBook} />
-            </Switch>
+            <Route exact path="/catalog/new" component = {AddBook} />
           </div>
           <Footer />
         </div>

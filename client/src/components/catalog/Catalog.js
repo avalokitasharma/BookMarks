@@ -14,13 +14,16 @@ class Catalog extends Component {
 		const { books } = this.props.books;
 		let bookArray;
 		
-	    if (books.length>0) {	
-			bookArray = books.map(book =>(
-					<Book key={book._id} book={book} />
-				))
-	    } else {
-	    	bookArray = <h4>You have not yet added any book, please add some</h4>;
-	    }
+		if(books === null){
+			bookArray = <h4>You have not yet added any book, please add some</h4>;
+		} else {
+			if (books.length>0) {	
+				bookArray = books.map(book =>(
+						<Book key={book._id} book={book} />
+					))
+		    } 
+		}
+	    
 
 		return(
 			<div>
@@ -35,7 +38,7 @@ class Catalog extends Component {
 						</div>
 					</header>
 				</div>
-				<div class="row text-center">
+				<div className="row text-center">
 					<div className="col-md-3 col-sm-6">
 						{bookArray}
 					</div>

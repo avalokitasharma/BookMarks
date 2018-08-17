@@ -99,9 +99,5 @@ class AddBook extends Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	book: state.book
-});
-
-export default connect(mapStateToProps,{addNewBook})(AddBook);
+export default connect(null,{addNewBook})(AddBook);
 
