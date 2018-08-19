@@ -22,9 +22,10 @@ export const getBooks = () => dispatch => {
 // add a new book to catalog
 
 export const addNewBook = (newBook, history) => dispatch => {
-  axios.post('/api/users/catalog/new', newBook);
-  //.catch(err => console.log(err));
-    //.then(res => history.push('/catalog'));
+  axios.post('/api/users/catalog/new', newBook)
+	 .then(res => history.push('/catalog'))
+  	 .catch(err => console.log(err));
+   
 };
 
 //clear Books
