@@ -8,6 +8,8 @@ Checkout this repo, install dependencies, then start the process with the follow
 
 > npm install
 
+> cd client
+
 > npm run client-install
 
 > npm run dev
